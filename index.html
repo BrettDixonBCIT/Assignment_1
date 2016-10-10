@@ -42,7 +42,7 @@
             display:inline-block;
             vertical-align: bottom;
             position:relative;
-            width:19vw;
+            width:auto;
             height:auto;
         }
         
@@ -134,6 +134,24 @@
             font-size: 50px;
             color:azure;
         }
+        
+        .plusbutton {
+            position:absolute;
+            bottom:0;
+            left:5px;
+            width:15px;
+            height:15px;
+        }
+        
+        .minusbutton {
+            position:absolute;
+            bottom:0;
+            left:25px;
+            width:15px;
+            height:15px;
+        }
+        
+        
     </style>
     
     <body>
@@ -154,26 +172,36 @@
                 <div class='portfolio'>
                     <img class='portfolioimg' src='http://www.emirates.com/au/english/images/SYD_A380_Double_Daily_Bottom_780_tcm276-1214232.jpg'>
                     <div class='titleblock'>A380</div>
+                    <button id='plusbutton1' class='plusbutton'>+</button>
+                    <button id='minusbutton1' class='minusbutton'>-</button> 
                 </div>
 
                 <div class='portfolio'>
                     <img class='portfolioimg' src='https://aviationdoctor.files.wordpress.com/2014/07/crj-200.jpg'>
                     <div class='titleblock'>CRJ200</div>
+                    <button id='plusbutton2' class='plusbutton'>+</button>
+                    <button id='minusbutton2' class='minusbutton'>-</button>
                 </div>
 
                 <div class='portfolio'>
                     <img class='portfolioimg' src='http://www.helicecluster.com/sites/helicecluster.com/files/styles/news-full/public/images/erj_145_baixa.jpg?itok=Qp5z3wVX'>
                     <div class='titleblock'>ERJ145</div>
+                    <button id='plusbutton3' class='plusbutton'>+</button>
+                    <button id='minusbutton3' class='minusbutton'>-</button>
                 </div>
 
                 <div class='portfolio'>
                     <img class='portfolioimg' src='http://wpmedia.montrealgazette.com/2016/04/a-bombardier-cseries-jet-in-delta-livery-the-airline-ordere.jpeg?quality=55&strip=all&w=840&h=630&crop=1'>
                     <div class='titleblock'>Cseries</div>
+                    <button id='plusbutton4' class='plusbutton'>+</button>
+                    <button id='minusbutton4' class='minusbutton'>-</button>
                 </div>
 
                 <div class='portfolio'>
                     <img class='portfolioimg' src='http://www.macleanengineering.com/images/support/sectors/ground_support/SS3_Shotcrete_Sprayer_main.jpg'>
                     <div class='titleblock'>MacLean Engineering</div>
+                    <button id='plusbutton5' class='plusbutton'>+</button>
+                    <button id='minusbutton5' class='minusbutton'>-</button>
                 </div>
             </div>
         </div>
@@ -194,6 +222,92 @@
         <div id='tagbottom'>
             <div id='centeredtextboxbig'>End of Brett</div>
         </div>
-               
+        
+        <script>
+            var imgSize = document.getElementsByClassName('portfolioimg');
+            var portBig1 = document.getElementById('plusbutton1');
+            var portSmall1 = document.getElementById('minusbutton1');
+            var portBig2 = document.getElementById('plusbutton2');
+            var portSmall2 = document.getElementById('minusbutton2');
+            var portBig3 = document.getElementById('plusbutton3');
+            var portSmall3 = document.getElementById('minusbutton3');
+            var portBig4 = document.getElementById('plusbutton4');
+            var portSmall4 = document.getElementById('minusbutton4');
+            var portBig5 = document.getElementById('plusbutton5');
+            var portSmall5 = document.getElementById('minusbutton5');
+            var portBlock = document.getElementById('portfolioblock');
+            
+            var screen = parseFloat(window.getComputedStyle(portBlock, null).getPropertyValue("width"));
+            
+            portBig1.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[0], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size + 1;
+                imgSize[0].style.width = size + 'vw';
+            }
+            
+            portSmall1.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[0], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size - 1;
+                imgSize[0].style.width = size + 'vw';
+            } 
+            
+            portBig2.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[1], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size + 1;
+                imgSize[1].style.width = size + 'vw';
+            }
+            
+            portSmall2.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[1], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size - 1;
+                imgSize[1].style.width = size + 'vw';
+            }
+            
+            portBig3.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[2], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size + 1;
+                imgSize[2].style.width = size + 'vw';
+            }
+            
+            portSmall3.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[2], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size - 1;
+                imgSize[2].style.width = size + 'vw';
+            }
+            
+            portBig4.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[3], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size + 1;
+                imgSize[3].style.width = size + 'vw';
+            }
+            
+            portSmall4.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[3], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size - 1;
+                imgSize[3].style.width = size + 'vw';
+            }
+            
+            portBig5.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[4], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size + 1;
+                imgSize[4].style.width = size + 'vw';
+            }
+            
+            portSmall5.onclick = function(){
+                var size = parseFloat(window.getComputedStyle(imgSize[4], null).getPropertyValue("width"));
+                size = size / screen * 100;
+                size = size - 1;
+                imgSize[4].style.width = size + 'vw';
+            }
+        </script>
     </body>
 </html>
